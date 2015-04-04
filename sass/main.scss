@@ -1,0 +1,185 @@
+// hm15
+// Main stylesheet
+
+// Imports
+@import "compass/css3";
+@import "compass/utilities/general/clearfix";
+
+
+// Variables
+////////////////////////////////////////////////////////////////////////////////
+//	Colors
+$ci-color: #b25e80;	// For headings & links
+$font-color: #333;
+$header-color: #666;
+$link-hover-color: darken($ci-color, 20%);
+$footer-color: #999;
+
+$spc: 10px;
+$ls-title: 5px;
+$letter-spacing: 3px;
+
+
+
+// Accessibility
+////////////////////////////////////////////////////////////////////////////////
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar. */
+}
+
+
+
+
+// Common
+////////////////////////////////////////////////////////////////////////////////
+body {
+	background:  lighten($ci-color, 46%);
+	color: $font-color;
+	font: 120%/1.61803399 sans-serif;
+	line-height: 1.45;
+	padding: 0 5px;
+	margin: $spc 0;
+}
+a {
+	color: $ci-color;
+	text-decoration: none;
+}
+a:hover {
+	color: $link-hover-color;
+	@include transition-property(color);
+	@include transition-duration(.2s);
+	@include transition-timing-function(ease-in);
+}
+figure {margin: 0}
+.entry-content img,
+.avatar {
+	@include border-radius(3px);
+}
+.entry-content img {
+	@include box-shadow(rgba(0, 0, 0, 0.2) 0 1px 4px);
+}
+.site {
+	margin: 0 auto;
+	max-width: 600px;
+}
+// Recommended
+// http://codex.wordpress.org/Content_Width
+.size-auto,
+.size-full,
+.size-large,
+.size-medium,
+.size-thumbnail {
+	max-width: 100%;
+	height: auto;
+}
+.hm-logo,
+.site-branding {
+	color: $header-color;
+	display: inline-block;
+	line-height: 1;
+}
+.hm-logo {
+	margin: 0 6px 0 0;
+	max-width: 48px;
+}
+.hm-logolink,.hm-logolink.hover {color: #222}
+.site-title {
+	font-size: 250%;
+	font-weight: bold;
+	letter-spacing: $ls-title;
+	@include animation(letterspace 1.5s);
+	margin: 0;
+	word-spacing: -1px;
+}
+@include keyframes(letterspace) {
+	0% {letter-spacing: -1.5*$ls-title}
+	100% {letter-spacing: $ls-title}
+}
+.site-description {
+	font-size: 89%;
+	margin: 0 0 0 2px;
+}
+
+
+
+// Navigation
+////////////////////////////////////////////////////////////////////////////////
+.main-navigation {
+	button {display: none}
+	ul {
+		list-style: none;
+		margin: 0;
+		padding-left: 0;
+		text-align: justify;
+	}
+	ul:after, ul:before {
+		content: '';
+		display: inline-block;
+		width: 100%;
+	}
+	li {
+		display: inline-block;
+	}
+	a {
+		color: $header-color;
+		display: block;
+		letter-spacing: $letter-spacing;
+		padding: 2*$spc $spc;
+		text-transform: uppercase;
+		text-indent: $letter-spacing;	// To balancing letter-spacing
+		word-spacing: -.1rem;
+	}
+	a:hover {color: $ci-color;}
+	li:first-of-type a {
+		margin-left: -$letter-spacing;	// To balancing letter-spacing
+		padding: 2*$spc $spc 2*$spc 0;
+	}
+	li:last-of-type a {
+		margin-left: -$letter-spacing;	// To balancing letter-spacing
+		padding: 2*$spc 0 2*$spc $spc;
+	}
+}
+
+
+
+// Content
+article:first-of-type .entry-title {margin-top: 0}
+.entry-meta {font-size: 89%}
+
+
+// Footer
+////////////////////////////////////////////////////////////////////////////////
+.site-footer {
+	border-top: 1px solid $footer-color;
+	color: $footer-color;
+	font-size: 90%;
+	margin-top: 60px;
+	padding-top: 20px;
+	a {color: $footer-color}
+	a:hover {color: $link-hover-color;}
+}
+.site-info {font-style: italic;}
