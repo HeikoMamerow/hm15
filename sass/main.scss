@@ -6,6 +6,7 @@
 @import "compass/utilities/general/clearfix";
 
 
+
 // Variables
 ////////////////////////////////////////////////////////////////////////////////
 //	Colors
@@ -16,7 +17,7 @@ $link-hover-color: darken($ci-color, 20%);
 $footer-color: #999;
 
 $spc: 10px;
-$ls-title: 5px;
+$ls-title: 4px;
 $letter-spacing: 3px;
 
 
@@ -53,7 +54,6 @@ $letter-spacing: 3px;
 
 
 
-
 // Common
 ////////////////////////////////////////////////////////////////////////////////
 body {
@@ -65,11 +65,9 @@ body {
 	margin: $spc 0;
 }
 a {
-	color: $ci-color;
 	text-decoration: none;
 }
 a:hover {
-	color: $link-hover-color;
 	@include transition-property(color);
 	@include transition-duration(.2s);
 	@include transition-timing-function(ease-in);
@@ -96,32 +94,63 @@ figure {margin: 0}
 	max-width: 100%;
 	height: auto;
 }
-.hm-logo,
+
+
+
+// Header
+////////////////////////////////////////////////////////////////////////////////
 .site-branding {
-	color: $header-color;
-	display: inline-block;
-	line-height: 1;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAA5CAMAAACs5ON+AAAAvVBMVEWyXoCyX4CzYIG0YYK0YoO0Y4O1ZYW2Zoa2aIe3aYi4a4q4bYu7cI67co+8dJG9dpO+eZW/e5bDgZzEgpzFh6DGiKHGiqPIjKTJjaXLkanKk6nOm6/Pm7DSoLTUpLjTpbjWq7zXrL3bs8Pbs8Tdt8fduMjfvczgv8zmy9bny9fo0Nro0tvr1uDr19/v3eXw4Obx4ujx4+rz5+z06e327fH48fT58fX69vj79vj7+Pn8+fr+/f7+/v7//v7////II9XOAAAAAWJLR0QAiAUdSAAAAAlwSFlzAAABEAAAARABBMRn7QAAAAd0SU1FB98EDQ4fMb5MWekAAAC/SURBVEjH7dU1EsNAFATRMTMzMzPz3P9YTlwqS1Z5/waOvJ2/uAFbObqVxdeWLmT1naDuYmoK4z98kGNAYdD7MF0VQfzmILeE0mDiMGM1QcFh8gKDtY1sJAQNm2mITPD0Rs4hkcHgzfRlBMm7RR4pocHMMlMpQdkyJbHB9kV2HrlpvUxTThC+kCSvEQ2DEUlyqEOQfpBkRstgTnKhR1AlWdE03j33Pk2DDtu6BNFTTNugCJPp17k+2BhjjPkL8wSjIqpqb5cnVAAAAABJRU5ErkJggg==") no-repeat;
+  @include background-size(contain);
+  color: $header-color;
+  display: block;
+  height: auto;
+  line-height: 1;
 }
-.hm-logo {
-	margin: 0 6px 0 0;
-	max-width: 48px;
-}
-.hm-logolink,.hm-logolink.hover {color: #222}
+.site-branding:hover { color: $ci-color }
 .site-title {
-	font-size: 250%;
-	font-weight: bold;
-	letter-spacing: $ls-title;
-	@include animation(letterspace 1.5s);
-	margin: 0;
-	word-spacing: -1px;
+  font-weight: bold;
+  letter-spacing: $ls-title;
+  @include animation(letterspace 1.5s);
+  margin: 0;
+  word-spacing: -1px;
 }
+// Animation for site title
 @include keyframes(letterspace) {
-	0% {letter-spacing: -1.5*$ls-title}
-	100% {letter-spacing: $ls-title}
+  //0% {letter-spacing: -1.5*$ls-title}
+  //100% {letter-spacing: $ls-title}
 }
 .site-description {
-	font-size: 89%;
-	margin: 0 0 0 2px;
+  //display: none;
+  //font-size: 89%;
+  margin: 0;
+  //margin: 0 0 0 2px;
+}
+// Tricky stuff specially for my logo title & description
+@media only screen and (max-width: 231px) {
+  .site-branding { padding-left: 36px; }
+  .site-title { font-size: 87%; max-width: 156px }
+  .site-description { display: none }
+}
+@media only screen and (min-width: 232px) and (max-width: 300px) {
+  .site-branding { padding-left: 43px; }
+  .site-title { font-size: 87%; }
+  .site-description { font-size: 60%; }
+}
+@media only screen and (min-width: 301px) and (max-width: 391px) {
+  .site-branding { padding-left: 55px; }
+  .site-title { font-size: 123%; }
+  .site-description { font-size: 80%; max-width: 310px }
+}
+@media only screen and (min-width: 392px) and (max-width: 452px) {
+  .site-branding { padding-left: 50px; }
+  .site-title { font-size: 192%; }
+  .site-description { font-size: 69%; }
+}
+@media only screen and (min-width: 453px) {
+  .site-branding { padding-left: 61px; }
+  .site-title { font-size: 225%; }
+  .site-description { font-size: 80%; }
 }
 
 
@@ -134,7 +163,7 @@ figure {margin: 0}
 		list-style: none;
 		margin: 0;
 		padding-left: 0;
-		text-align: justify;
+		//text-align: justify;
 	}
 	ul:after, ul:before {
 		content: '';
@@ -167,8 +196,16 @@ figure {margin: 0}
 
 
 // Content
+////////////////////////////////////////////////////////////////////////////////
+.site-content a {
+  color: $ci-color;
+}
+.site-content a:hover {
+  color: $link-hover-color;
+}
 article:first-of-type .entry-title {margin-top: 0}
 .entry-meta {font-size: 89%}
+
 
 
 // Footer

@@ -6,28 +6,6 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 
-		px_to_rem: {
-			dist: {
-				options: {
-					base: 16,
-					fallback: true,
-					fallback_existing_rem: true,
-					ignore: [
-						'border',
-						'border-top',
-						'border-right',
-						'border-bottom',
-						'border-left',
-						'background'
-					]
-				},
-				files: {
-					'css/main.css': ['css/main.css']
-				}
-			}
-		},
-
-
 		uncss: {
 			dist: {
 				files: {
@@ -53,7 +31,7 @@ module.exports = function(grunt) {
 		watch: {
 			compass: {
 				files: ['sass/*.scss'],
-				tasks: ['compass', 'px_to_rem'],
+				tasks: ['compass'],
 				options: {
 					sassDir: 'sass',
 					cssDir: 'css',
