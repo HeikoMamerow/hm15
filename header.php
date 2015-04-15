@@ -10,7 +10,7 @@
 <html <?php language_attributes(); ?>>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
@@ -23,8 +23,11 @@
 
 	<header id="masthead" class="site-header" role="banner">
 		<a class="site-branding" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" title="Start">
+			<div class="site-branding-box-left"></div>
+			<div class="site-branding-box-right">
 				<p class="site-title"><?php bloginfo( 'name' ); ?></p>
-				<p class="site-description"><?php echo html_entity_decode(get_bloginfo('description')); ?></p>
+				<p class="site-description">Freelancer, <span>Frontend Entwickler &</span> <span>WordPress-Genießer</span></p>
+			</div>
 		</a><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation" role="navigation">
