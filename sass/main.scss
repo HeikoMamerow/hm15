@@ -10,6 +10,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //	Colors
 $ci-color: #b25e80;	// For headings & links
+$background-color: #eee;
 $font-color: #333;
 $header-color: #666;
 $link-hover-color: darken($ci-color, 20%);
@@ -56,7 +57,7 @@ $letter-spacing: 3px;
 // Common
 ////////////////////////////////////////////////////////////////////////////////
 body {
-	background:  lighten($ci-color, 46%);
+	background: lighten($ci-color, 46%);
 	color: $font-color;
 	font: 120%/1.61803399 Arial, Helvetica, sans-serif;
 	line-height: 1.45;
@@ -69,13 +70,15 @@ body {
 	margin-top: 2*$spc;
   }
 }
-a {
-	text-decoration: none;
-}
+a {	text-decoration: none; }
 a:hover {
 	@include transition-property(color);
 	@include transition-duration(.2s);
 	@include transition-timing-function(ease-in);
+}
+a:active,
+a:hover {
+  outline: 0;
 }
 figure {margin: 0}
 .entry-content img,
@@ -83,7 +86,7 @@ figure {margin: 0}
 	@include border-radius(3px);
 }
 .entry-content img {
-	@include box-shadow(rgba(0, 0, 0, 0.2) 0 1px 4px);
+	//@include box-shadow(rgba(0, 0, 0, 0.2) 0 1px 4px);
 }
 .site {
 	margin: 0 auto;
@@ -136,7 +139,7 @@ figure {margin: 0}
 .site-description {
   margin: 0;
 }
-// Tricky stuff specially for my logo title & description
+// Tricky stuff to adjust my logo title & description
 @media only screen and (max-width: 231px) {
   .site-branding-box-left { border-bottom: 3px solid transparent; border-top: 2px solid transparent; width: 32px; }
   .site-title { font-size: 87%; max-width: 156px }
@@ -170,43 +173,91 @@ figure {margin: 0}
 
 // Navigation
 ////////////////////////////////////////////////////////////////////////////////
+.menu-toggle {
+  @media only screen and (max-width: 480px) {
+	background-color: $background-color;
+	border: 1px solid #fff;
+	@include border-radius(5px);
+	display: block;
+	font-size: 80%;
+	letter-spacing: 2px;
+	margin: 0 auto;
+	padding: $spc 2*$spc;
+	text-transform: uppercase;
+  }
+  @media only screen and (min-width: 481px) {
+	display: none
+  }
+}
 .main-navigation {
-	button {display: none}
+  ul {
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+  }
+  a {
+	color: $header-color;
+	display: block;
+	letter-spacing: $letter-spacing;
+	padding: 0;
+	text-transform: uppercase;
+
+	text-indent: $letter-spacing;	// To balancing letter-spacing
+	word-spacing: -.1rem;
+  }
+  a:hover {color: $ci-color;}
+
+  @media only screen and (min-width: 481px) {
 	ul {
-		list-style: none;
-		margin: 0;
-		padding-left: 0;
-		text-align: justify;
-	}
-	ul:after, ul:before {
-		content: '';
-		display: inline-block;
-		width: 100%;
+	  text-align: justify;
 	}
 	li {
-		display: inline-block;
+	  display: inline-block;
 	}
 	a {
-		color: $header-color;
-		display: block;
-		letter-spacing: $letter-spacing;
-		padding: 2*$spc $spc;
-		text-transform: uppercase;
-		text-indent: $letter-spacing;	// To balancing letter-spacing
-		word-spacing: -.1rem;
+	  padding: 2*$spc $spc;
 	}
-	a:hover {color: $ci-color;}
 	li:first-of-type a {
-		margin-left: -$letter-spacing;	// To balancing letter-spacing
-		padding: 2*$spc $spc 2*$spc 0;
+	  margin-left: -$letter-spacing;	// To balancing letter-spacing
+	  padding: 2*$spc $spc 2*$spc 0;
 	}
 	li:last-of-type a {
-		margin-left: -$letter-spacing;	// To balancing letter-spacing
-		padding: 2*$spc 0 2*$spc $spc;
+	  margin-left: -$letter-spacing;	// To balancing letter-spacing
+	  padding: 2*$spc 0 2*$spc $spc;
 	}
+	ul:after, ul:before {
+	content: '';
+	display: inline-block;
+	width: 100%;
+	}
+  }
 }
-
-
+@media only screen and (max-width: 480px) {
+  .main-navigation {
+	margin: 4*$spc auto;
+	text-align: center;
+  }
+  .main-navigation  ul {
+	display: none;
+  }
+  .toggled ul {
+	display: block;
+  }
+  .main-navigation a {
+	background-color: $background-color;
+	border-bottom: 1px solid #fff;
+	@include border-radius(5px);
+	font-size: 80%;
+	padding: $spc 0;
+	text-align: center;
+	width: 100%;
+  }
+}
+@media only screen and (min-width: 481px) {
+  .sub-menu {
+	display: none;
+  }
+}
 
 // Content
 ////////////////////////////////////////////////////////////////////////////////
