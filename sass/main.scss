@@ -118,18 +118,20 @@ figure {margin: 0}
     width: 76px;
 }
 .site-branding-box-right {
-  color: $header-color;
-  float: left;
+    color: $header-color;
+    float: left;
 }
-.site-branding-box-right:hover { color: $ci-color }
+.site-branding-box-right:hover { 
+    color: $ci-color 
+}
 .site-title {
     font-size: 300%;
     letter-spacing: $ls-title;
     line-height: 1;
+    margin-left: -3px;
 }
 
 .site-description {
-  /*margin: 0;*/
 }
 
 
