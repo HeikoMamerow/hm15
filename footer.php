@@ -12,7 +12,7 @@
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
-			Proudly powered by <a href="https://wordpress.org/">WordPress</a>, <a href="http://underscores.me/">_s</a> & <a href="https://heikomamerow.de" rel="designer">Heiko Mamerow</a> :-)
+			Proudly powered by <a href="https://wordpress.org/">WordPress</a>, <a href="http://underscores.me/">_s</a> & <a href="https://heikomamerow.de" rel="designer">me</a> :-)
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
