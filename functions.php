@@ -94,7 +94,8 @@ add_action( 'widgets_init', 'hm15_widgets_init' );
  * Enqueue scripts and styles.
  */
 function hm15_scripts() {
-	wp_enqueue_style( 'hm15-style', get_template_directory_uri() . '/css/main.css');
+    
+        wp_enqueue_style( 'hm15-style', get_template_directory_uri() . '/css/main.css');
 
 //	wp_enqueue_script( 'hm15-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 

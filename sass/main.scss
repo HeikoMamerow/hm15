@@ -4,6 +4,7 @@
 // Imports
 @import "compass/css3";
 @import "compass/utilities/general/clearfix";
+@import "compass/reset";
 
 
 // Variables
@@ -17,7 +18,7 @@ $link-hover-color: darken($ci-color, 20%);
 $footer-color: #999;
 // Spaces
 $spc: 10px;
-$ls-title: 4px;
+$ls-title: 5px;
 $letter-spacing: 3px;
 
 
@@ -108,68 +109,62 @@ figure {margin: 0}
 // Header
 ////////////////////////////////////////////////////////////////////////////////
 .site-branding {
-  display: table;
-  line-height: 1;
+    @include clearfix;
+    display: block;
 }
 .site-branding-box-left {
-  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAA5CAMAAACs5ON+AAAAvVBMVEWyXoCyX4CzYIG0YYK0YoO0Y4O1ZYW2Zoa2aIe3aYi4a4q4bYu7cI67co+8dJG9dpO+eZW/e5bDgZzEgpzFh6DGiKHGiqPIjKTJjaXLkanKk6nOm6/Pm7DSoLTUpLjTpbjWq7zXrL3bs8Pbs8Tdt8fduMjfvczgv8zmy9bny9fo0Nro0tvr1uDr19/v3eXw4Obx4ujx4+rz5+z06e327fH48fT58fX69vj79vj7+Pn8+fr+/f7+/v7//v7////II9XOAAAAAWJLR0QAiAUdSAAAAAlwSFlzAAABEAAAARABBMRn7QAAAAd0SU1FB98EDQ4fMb5MWekAAAC/SURBVEjH7dU1EsNAFATRMTMzMzPz3P9YTlwqS1Z5/waOvJ2/uAFbObqVxdeWLmT1naDuYmoK4z98kGNAYdD7MF0VQfzmILeE0mDiMGM1QcFh8gKDtY1sJAQNm2mITPD0Rs4hkcHgzfRlBMm7RR4pocHMMlMpQdkyJbHB9kV2HrlpvUxTThC+kCSvEQ2DEUlyqEOQfpBkRstgTnKhR1AlWdE03j33Pk2DDtu6BNFTTNugCJPp17k+2BhjjPkL8wSjIqpqb5cnVAAAAABJRU5ErkJggg==") no-repeat;
-  @include background-size(contain);
-  @include background-clip(padding-box);
-  display: table-cell;
+    float: left;
+    margin-right: 20px;
+    width: 76px;
 }
 .site-branding-box-right {
   color: $header-color;
-  display: table-cell;
-  p {margin: 0; }
-  span {white-space: nowrap}
+  float: left;
 }
 .site-branding-box-right:hover { color: $ci-color }
 .site-title {
-  font-weight: bold;
-  letter-spacing: $ls-title;
-  @include animation(letterspace 1.5s);
-  margin: 0;
-  //word-spacing: -1px;
+    font-size: 300%;
+    letter-spacing: $ls-title;
+    line-height: 1;
 }
-// Animation for site title
-@include keyframes(letterspace) {
-  0% {letter-spacing: -1.5*$ls-title}
-  100% {letter-spacing: $ls-title}
-}
+
 .site-description {
-  margin: 0;
+  /*margin: 0;*/
 }
-// Tricky stuff to adjust my logo title & description
-@media only screen and (max-width: 231px) {
-  .site-branding-box-left { border-bottom: 3px solid transparent; border-top: 2px solid transparent; width: 32px; }
-  .site-title { font-size: 87%; max-width: 156px }
-  .site-description { display: none }
-}
-@media only screen and (min-width: 232px) and (max-width: 300px) {
-  .site-branding-box-left { border-bottom: 2px solid transparent; border-top: 2px solid transparent; width: 40px; }
-  .site-title { font-size: 87%; }
-  .site-description { font-size: 60%; }
-}
-@media only screen and (min-width: 301px) and (max-width: 391px) {
-  .site-branding-box-left { border-bottom: 2px solid transparent; border-top: 2px solid transparent; width: 52px; }
-  .site-title { font-size: 123%; }
-  .site-description { font-size: 80%; }
-}
-@media only screen and (min-width: 392px) and (max-width: 452px) {
-  .site-branding-box-left { border-bottom: 2px solid transparent; border-top: 4px solid transparent; width: 44px; }
-  .site-title { font-size: 192%; }
-  .site-description { font-size: 69%; padding-left: 1px }
-}
-@media only screen and (min-width: 453px) and (max-width: 480px) {
-  .site-branding-box-left { border-bottom: 2px solid transparent; border-top: 3px solid transparent; width: 40px; }
-  .site-title { font-size: 164%; }
-  .site-description { font-size: 69%; padding-left: 1px }
-}
-@media only screen and (min-width: 481px) {
-  .site-branding-box-left { border-bottom: 2px solid transparent; border-top: 5px solid transparent; width: 58px; }
-  .site-title { font-size: 225%; }
-  .site-description { font-size: 80%; padding-left: 1px }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+#colophon,
+#site-navigation,
+#content {display: none}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Navigation
 ////////////////////////////////////////////////////////////////////////////////
@@ -186,7 +181,7 @@ figure {margin: 0}
 	text-transform: uppercase;
   }
   @media only screen and (min-width: 481px) {
-	display: none
+	display: none;
   }
 }
 .main-navigation {

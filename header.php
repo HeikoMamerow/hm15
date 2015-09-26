@@ -23,11 +23,13 @@
 
 	<header id="masthead" class="site-header" role="banner">
 		<a class="site-branding" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" title="Start">
-			<div class="site-branding-box-left"></div>
-			<div class="site-branding-box-right">
+                    <div class="site-branding-box-left">
+                        <svg height="100%" width="100%" viewBox="0 0 144 160"><g transform="translate(-617.35 -791.95)"><path d="m617 792 41 0 31 72 31-72 41 0v160h-41l0-56-62 0 0 56h-41z" fill="#b25e80" style="color-rendering:auto;image-rendering:auto;isolation:auto;mix-blend-mode:normal;shape-rendering:auto;solid-color:#000000"/></g></svg>
+                    </div>
+                    <div class="site-branding-box-right">
 				<p class="site-title"><?php bloginfo( 'name' ); ?></p>
-				<p class="site-description">Freelancer, <span>Frontend Entwickler &</span> <span>WordPress-Genießer</span></p>
-			</div>
+				<p class="site-description">Freelancer, Frontend Entwickler & WordPress-Genießer</p>
+                    </div>
 		</a><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation" role="navigation">
